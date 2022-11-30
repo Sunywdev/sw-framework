@@ -4,22 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.holly.top.springframework</groupId>
-    <artifactId>holly-framework</artifactId>
+    <groupId>com.sw.xyz.springframework</groupId>
+    <artifactId>sw-framework</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>holly-springboot-starter</module>
-        <module>holly-springboot-jdbc</module>
-        <module>holly-springboot-config</module>
-        <module>holly-springboot-cache</module>
-        <module>holly-springcloud-starter</module>
-        <module>holly-springboot-utils</module>
-        <module>holly-spring-test</module>
-        <module>holly-springboot-mq</module>
-        <module>holly-springboot-bean</module>
-        <module>holly-springboot-swagger</module>
-        <module>holly-springboot-core</module>
+        <module>sw-springboot-starter</module>
+        <module>sw-springboot-jdbc</module>
+        <module>sw-springboot-config</module>
+        <module>sw-springboot-cache</module>
+        <module>sw-springcloud-starter</module>
+        <module>sw-springboot-utils</module>
+        <module>sw-spring-test</module>
+        <module>sw-springboot-mq</module>
+        <module>sw-springboot-bean</module>
+        <module>sw-springboot-swagger</module>
+        <module>sw-springboot-core</module>
+        <module>sw-springboot-job</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -45,6 +46,8 @@
         <knife4j-version>2.0.9</knife4j-version>
         <!--validator版本-->
         <hibernate-validator-version>6.0.18.Final</hibernate-validator-version>
+        <!--xxl-job版本-->
+        <xxl-job-version>2.3.0</xxl-job-version>
     </properties>
     <dependencyManagement>
         <dependencies>

@@ -1,0 +1,70 @@
+{
+  "groups": [
+    {
+      "name": "sw.swagger",
+      "type": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams"
+    },
+    {
+      "name": "sw.swagger.contact",
+      "type": "com.sw.xyz.springframework.swagger.config.SwaggerParams$Contact",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
+      "sourceMethod": "getContact()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sw.swagger.contact.email",
+      "type": "java.lang.String",
+      "description": "联系邮箱",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams$Contact"
+    },
+    {
+      "name": "sw.swagger.contact.name",
+      "type": "java.lang.String",
+      "description": "联系人名称",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams$Contact"
+    },
+    {
+      "name": "sw.swagger.contact.url",
+      "type": "java.lang.String",
+      "description": "联系地址",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams$Contact"
+    },
+    {
+      "name": "sw.swagger.description",
+      "type": "java.lang.String",
+      "description": "描述说明",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
+      "defaultValue": "Finance Cloud MircoService Platform API"
+    },
+    {
+      "name": "sw.swagger.enable",
+      "type": "java.lang.Boolean",
+      "description": "是否开启swagger true=开启(默认) false=关闭",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.swagger.terms-of-service-url",
+      "type": "java.lang.String",
+      "description": "服务访问地址",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams"
+    },
+    {
+      "name": "sw.swagger.title",
+      "type": "java.lang.String",
+      "description": "标题",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
+      "defaultValue": "sw swagger-bootstrap-ui RESTful API"
+    },
+    {
+      "name": "sw.swagger.version",
+      "type": "java.lang.String",
+      "description": "版本号",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
+      "defaultValue": "1.0.0"
+    }
+  ],
+  "hints": []
+}

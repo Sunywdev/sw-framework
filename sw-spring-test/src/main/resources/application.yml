@@ -1,0 +1,15 @@
+sw:
+  swagger:
+    enable: true
+server:
+  port: 9600
+  servlet:
+    context-path: /swagger-example
+spring:
+  redis:
+    host: 192.168.0.186
+    port: 6379
+  rabbitmq:
+    addresses: 192.168.93.134
+    port: 5672
+    password: guest
