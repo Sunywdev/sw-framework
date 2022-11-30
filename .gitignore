@@ -28,6 +28,5 @@ logs/
 dependency-reduced-pom.xml
 disconf/
 /catlogs
-log
 status
 catlogs
