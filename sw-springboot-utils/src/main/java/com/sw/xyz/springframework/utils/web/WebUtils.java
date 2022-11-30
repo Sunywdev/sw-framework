@@ -1,4 +1,4 @@
-package com.sw.xyz.springframework.core.utils;
+package com.sw.xyz.springframework.utils.web;
 
 import lombok.Getter;
 import lombok.Setter;

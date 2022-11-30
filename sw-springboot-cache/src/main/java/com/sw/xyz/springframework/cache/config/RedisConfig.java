@@ -55,7 +55,6 @@ public class RedisConfig {
     private GenericObjectPoolConfig<?> genericObjectPoolConfig(RedisProperties.Pool properties) {
         GenericObjectPoolConfig<?> config=new GenericObjectPoolConfig<>();
         if (null !=properties){
-            System.out.println(JSONUtil.toJsonStr(properties));
             config.setMaxTotal(properties.getMaxActive());
             config.setMaxIdle(properties.getMaxIdle());
             config.setMinIdle(properties.getMinIdle());

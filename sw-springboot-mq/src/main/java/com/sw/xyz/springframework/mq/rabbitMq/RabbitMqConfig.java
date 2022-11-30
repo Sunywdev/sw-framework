@@ -6,6 +6,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * 名称: XX定义
@@ -17,6 +18,7 @@ import org.springframework.amqp.support.converter.MessageConverter;
  * 时间: 2022/9/19 15:48
  */
 @Slf4j
+@Configuration
 public class RabbitMqConfig {
 
     @Bean

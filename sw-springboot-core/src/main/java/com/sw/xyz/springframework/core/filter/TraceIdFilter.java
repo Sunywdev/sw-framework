@@ -2,7 +2,7 @@ package com.sw.xyz.springframework.core.filter;
 
 import cn.hutool.core.util.IdUtil;
 import com.sw.xyz.springframework.core.constants.SystemConstants;
-import com.sw.xyz.springframework.core.utils.WebUtils;
+import com.sw.xyz.springframework.utils.web.WebUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.core.annotation.Order;

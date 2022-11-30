@@ -34,6 +34,11 @@ public class RabbitMessageSendBody<T> extends BaseBody {
     private String queue;
 
     /**
+     * 消息唯一ID
+     */
+    private String messageId;
+
+    /**
      * 消息主题
      */
     private String exchange;
@@ -41,15 +46,10 @@ public class RabbitMessageSendBody<T> extends BaseBody {
     /**
      * 消息路由规则
      */
-    private String routingKey = "";
+    private String routingKey;
 
     /**
-     * 唯一消息ID
-     */
-    private String messageId;
-
-    /**
-     * 延迟的时间,默认为0,不延迟 单位秒
+     * 延迟的时间,默认为0不延迟 单位秒,首先需要先创建好延迟队列
      */
     private Integer delayTimestamp;
 
@@ -57,9 +57,4 @@ public class RabbitMessageSendBody<T> extends BaseBody {
      * 消息失败是否放入死信队列中,默认不放
      */
     private Boolean enableDeadQueue = false;
-
-    /**
-     * 交换机的类型
-     */
-    private ExchangeTypeEnum exchangeTypeEnum;
 }

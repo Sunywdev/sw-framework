@@ -1,13 +1,11 @@
 package com.sw.xyz.springframework;
 
+import com.sw.xyz.springframework.cache.annotations.EnableRedis;
 import com.sw.xyz.springframework.cache.annotations.EnableRedisson;
-import com.sw.xyz.springframework.mq.rabbitMq.RabbitMqBaseListen;
-import com.sw.xyz.springframework.mq.rabbitMq.RabbitMqSubscribeBody;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
@@ -20,18 +18,18 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * 时间: 2022/9/19 14:38
  */
 @SpringBootApplication(scanBasePackages = {"com.sw"})
-@EnableAspectJAutoProxy
 @EnableAsync
-@EnableRedisson
 @Slf4j
+@EnableRedisson
+@EnableRedis
 public class App {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(App.class, args);
-        RabbitMqBaseListen bean = run.getBean(RabbitMqBaseListen.class);
-        bean.subscribe(new RabbitMqSubscribeBody<String>()
+       /* RabbitMqBaseListen bean = run.getBean(RabbitMqBaseListen.class);
+        bean.subscribe(new RabbitMqSubscribeBody()
                 .setQueue("delay.queue.demo")
                 .setType(String.class)
                 .setRunnable(msg -> log.info("de-queue:[{}]", msg.getData()))
-        );
+        );*/
     }
 }

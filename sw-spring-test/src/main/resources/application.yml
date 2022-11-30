@@ -1,15 +1,23 @@
 sw:
   swagger:
     enable: true
+    title: sw框架测试
+    contact:
+      name: syw
+      email: 17637148310@163.com
+    version: 1.0-SNAPSHOT
 server:
   port: 9600
   servlet:
     context-path: /swagger-example
 spring:
+  rabbitmq:
+    addresses: 192.168.93.138
+    port: 5672
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual
   redis:
     host: 192.168.0.186
     port: 6379
-  rabbitmq:
-    addresses: 192.168.93.134
-    port: 5672
-    password: guest
