@@ -1,4 +1,4 @@
-package com.sw.xyz.springframework.cache.utils;
+package com.sw.xyz.springframework.cache.local;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;

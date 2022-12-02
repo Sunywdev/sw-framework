@@ -1,8 +1,10 @@
 package com.sw.xyz.springframework.cache.config;
 
+import cn.hutool.core.lang.Validator;
 import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;
 import com.sw.xyz.springframework.cache.annotations.RateLimit;
+import com.sw.xyz.springframework.utils.spel.SpElUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -35,31 +37,54 @@ public class RateLimitAspect {
     @Autowired
     private RedissonClient redissonClient;
 
-    @Pointcut(value="@annotation(com.sw.xyz.springframework.cache.annotations.RateLimit)")
+    @Autowired
+    private SpElUtils spElUtils;
+
+
+    @Pointcut(value = "@annotation(com.sw.xyz.springframework.cache.annotations.RateLimit)")
     public void cut() {
     }
 
-    @Before(value="cut()")
+    @Before(value = "cut()")
     public void check(JoinPoint joinPoint) {
-        Method method=((MethodSignature) joinPoint.getSignature()).getMethod();
-        RateLimit routeLimiter=method.getAnnotation(RateLimit.class);
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+        RateLimit routeLimiter = method.getAnnotation(RateLimit.class);
         if (null == routeLimiter) {
             return;
         }
-        if (ObjectUtils.isEmpty(routeLimiter.value())) {
-            log.warn("限流器没有指定keyName");
-            throw new BaseException(RespCodeEnums.FAIL.getCode(),RespCodeEnums.FAIL.getMessage());
-        }
-        RRateLimiter rateLimiter=redissonClient.getRateLimiter(routeLimiter.value());
-        rateLimiter.setRate(routeLimiter.rateType(),routeLimiter.rate(),routeLimiter.rateInterval(),routeLimiter.unit());
+        String value = buildRateKey(routeLimiter, method, joinPoint.getArgs());
+        RRateLimiter rateLimiter = redissonClient.getRateLimiter(value);
+        rateLimiter.setRate(routeLimiter.rateType(), routeLimiter.rate(), routeLimiter.rateInterval(), routeLimiter.unit());
         boolean ac;
         if (0 == routeLimiter.timeout()) {
-            ac=rateLimiter.tryAcquire();
+            ac = rateLimiter.tryAcquire();
         } else {
-            ac=rateLimiter.tryAcquire(routeLimiter.timeout(),routeLimiter.timeoutUnit());
+            ac = rateLimiter.tryAcquire(routeLimiter.timeout(), routeLimiter.timeoutUnit());
         }
         if (!ac) {
-            throw new BaseException(RespCodeEnums.TOO_MANY_REQUESTS.getCode(),RespCodeEnums.TOO_MANY_REQUESTS.getMessage());
+            throw new BaseException(RespCodeEnums.TOO_MANY_REQUESTS.getCode(), RespCodeEnums.TOO_MANY_REQUESTS.getMessage());
         }
     }
+
+    /**
+     * 构建限流器的Key,由Key值加动态参数值构成
+     *
+     * @param rateLimit {@link RateLimit}
+     * @param method    {@link Method}
+     * @return String
+     */
+    private String buildRateKey(RateLimit rateLimit, Method method, Object[] args) {
+        String value = rateLimit.value();
+        if (ObjectUtils.isEmpty(value)) {
+            log.warn("限流器没有指定keyName,将使用默认方法路径");
+            value = method.getDeclaringClass().getName() + "." + method.getName();
+        }
+        String spElValue = spElUtils.parseSpEl(method, rateLimit.spElValue(), args);
+        if (Validator.isNotEmpty(spElValue)) {
+            value = value + "#" + spElValue;
+        }
+        log.info("限流Key:[{}]", value);
+        return value;
+    }
+
 }

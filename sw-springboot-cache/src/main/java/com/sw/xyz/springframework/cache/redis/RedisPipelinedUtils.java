@@ -1,4 +1,4 @@
-package com.sw.xyz.springframework.cache.utils;
+package com.sw.xyz.springframework.cache.redis;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

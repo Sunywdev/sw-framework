@@ -1,4 +1,4 @@
-package com.sw.xyz.springframework.cache.utils;
+package com.sw.xyz.springframework.cache.redis;
 
 import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;

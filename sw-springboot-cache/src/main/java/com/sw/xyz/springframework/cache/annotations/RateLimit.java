@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * 方法: <方法简述-方法描述>
  * 版本: 1.0
  * 作者: sunyw
- * 说明: 基于Redisson的限流
+ * 说明: 基于Redisson的限流,支持spEl表达式
  * 时间: 2022/9/23 9:28
  */
 @Target({ElementType.METHOD})
@@ -23,7 +23,12 @@ public @interface RateLimit {
     /**
      * 实例名称
      */
-    String value();
+    String value() default "";
+
+    /**
+     * SPEL表达式,key组成为value+SpEl取到的值
+     */
+    String [] spElValue() default "";
 
     /**
      * OVERALL,             //所有客户端加总限流
