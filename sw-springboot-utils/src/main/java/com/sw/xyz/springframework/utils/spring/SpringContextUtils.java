@@ -20,7 +20,6 @@ import java.util.Map;
  * 时间: 2021/12/16 10:31
  */
 @Component
-@Lazy
 public final class SpringContextUtils implements  ApplicationContextAware {
 
     private static final Logger log = LoggerFactory.getLogger(SpringContextUtils.class);

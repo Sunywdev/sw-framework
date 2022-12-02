@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Api(tags = "分布式锁使用控制层")
 @RequestMapping("/lock")
-public class RedisLock {
+public class RedisLockController {
 
     @PostMapping("/normal")
     @Log(value = "lock分布式锁普通方法", level = LogLevel.INFO)

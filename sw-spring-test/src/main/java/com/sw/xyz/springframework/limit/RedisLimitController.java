@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Api(tags = "限流器使用控制层")
 @RequestMapping("/limit")
-public class RedisLimit {
+public class RedisLimitController {
 
 
     @PostMapping("/normal")
