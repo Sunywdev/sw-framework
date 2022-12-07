@@ -1,5 +1,7 @@
 package com.sw.xyz.springframework.model;
 
+import com.sw.xyz.springframework.core.sensitive.Sensitive;
+import com.sw.xyz.springframework.core.sensitive.SensitiveTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,4 +30,16 @@ public class OrderVo implements Serializable {
     private String orderId;
 
     private BigDecimal orderAmount;
+
+    @Sensitive(value = SensitiveTypeEnum.EMAIL)
+    private String email;
+
+    @Sensitive(value = SensitiveTypeEnum.PHONE_NO)
+    private String phone;
+
+    @Sensitive(value = SensitiveTypeEnum.CHINESE_NAME)
+    private String userName;
+
+    @Sensitive(value = SensitiveTypeEnum.BANK_CARD)
+    private String bankCard;
 }
