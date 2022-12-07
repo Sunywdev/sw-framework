@@ -61,7 +61,6 @@ public class RedisConfig {
             config.setMaxWaitMillis(redisProperties.getLettuce().getPool().getMaxWait().toMillis());
             return config;
         }
-        System.out.println(JSONUtil.toJsonStr(config));
         return config;
     }
 
