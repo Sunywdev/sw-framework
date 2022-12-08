@@ -77,6 +77,7 @@ public class BaseResponse<T> implements Serializable {
      * @param message
      * @return
      */
+    @SuppressWarnings("unchecked")
     public static BaseResponse success(String message,Object data) {
         BaseResponse commonResp=new BaseResponse();
         commonResp.setCode(RespCodeEnums.OK.getCode());
@@ -90,6 +91,7 @@ public class BaseResponse<T> implements Serializable {
      *
      * @return
      */
+    @SuppressWarnings("unchecked")
     public static BaseResponse success(Object data) {
         BaseResponse commonResp=new BaseResponse();
         commonResp.setCode(RespCodeEnums.OK.getCode());

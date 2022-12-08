@@ -1,6 +1,5 @@
 package com.sw.xyz.springframework.cache.config;
 
-import cn.hutool.json.JSONUtil;
 import com.sw.xyz.springframework.cache.enums.RedisModel;
 import io.lettuce.core.ClientOptions;
 import io.lettuce.core.ReadFrom;

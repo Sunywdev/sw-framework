@@ -21,6 +21,7 @@
         <module>sw-springboot-swagger</module>
         <module>sw-springboot-core</module>
         <module>sw-springboot-job</module>
+        <module>sw-sprintboot-security</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
