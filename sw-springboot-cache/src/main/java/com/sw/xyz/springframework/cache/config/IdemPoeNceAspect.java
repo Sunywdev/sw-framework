@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 名称: IdemPoeNceAspect
- * 功能: <功能详细描述>
+ * 功能: <幂等性校验注解>
  * 方法: <方法简述-方法描述>
  * 版本: 1.0
  * 作者: sunyw
@@ -59,7 +59,7 @@ public class IdemPoeNceAspect {
     }
 
     /**
-     * 构建限流器的Key,由Key值加动态参数值构成
+     * 构建幂等性的Key,由Key值加动态参数值构成
      *
      * @param rateLimit {@link RateLimit}
      * @param method    {@link Method}
