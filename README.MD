@@ -1,1 +1,2 @@
+![avatar](/file/sw-framework.jpg)
 - sw-framework 是一个JAVA开发基础框架,目的是为了缩短开发周期,简化开发过程中重复工作
