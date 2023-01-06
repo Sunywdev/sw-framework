@@ -1,7 +1,7 @@
 package com.sw.xyz.springframework.cache.config;
 
 import cn.hutool.core.lang.Validator;
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;
 import com.sw.xyz.springframework.cache.annotations.IdemPoeNce;
 import com.sw.xyz.springframework.cache.annotations.RateLimit;
@@ -54,7 +54,7 @@ public class IdemPoeNceAspect {
         String value = buildKey(poeNce, method, joinPoint.getArgs());
         boolean result = baseUtils.TrySaveObject(value, value, poeNce.time(), TimeUnit.SECONDS);
         if (!result) {
-            throw new BaseException(RespCodeEnums.REPEATABLE_REQUESTS.getCode(), RespCodeEnums.REPEATABLE_REQUESTS.getMessage());
+            throw new BaseException(SystemRespCodeEnums.REPEATABLE_REQUESTS.getCode(), SystemRespCodeEnums.REPEATABLE_REQUESTS.getMessage());
         }
     }
 

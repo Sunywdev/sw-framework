@@ -1,6 +1,6 @@
 package com.sw.xyz.springframework.bean.response;
 
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,10 +18,10 @@ import java.io.Serializable;
 public class BaseResponse<T> implements Serializable {
 
 
-    private Integer code= RespCodeEnums.OK.getCode();
+    private Integer code= SystemRespCodeEnums.OK.getCode();
 
 
-    private String message=RespCodeEnums.OK.getMessage();
+    private String message=SystemRespCodeEnums.OK.getMessage();
 
 
     private Boolean success=true;
@@ -38,7 +38,7 @@ public class BaseResponse<T> implements Serializable {
      */
     public static BaseResponse error(String message) {
         BaseResponse commonResp=new BaseResponse();
-        commonResp.setCode(RespCodeEnums.FAIL.getCode());
+        commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
         return commonResp;
@@ -65,8 +65,8 @@ public class BaseResponse<T> implements Serializable {
      */
     public static BaseResponse error() {
         BaseResponse commonResp=new BaseResponse();
-        commonResp.setCode(RespCodeEnums.FAIL.getCode());
-        commonResp.setMessage(RespCodeEnums.FAIL.getMessage());
+        commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
+        commonResp.setMessage(SystemRespCodeEnums.FAIL.getMessage());
         commonResp.setSuccess(false);
         return commonResp;
     }
@@ -80,7 +80,7 @@ public class BaseResponse<T> implements Serializable {
     @SuppressWarnings("unchecked")
     public static BaseResponse success(String message,Object data) {
         BaseResponse commonResp=new BaseResponse();
-        commonResp.setCode(RespCodeEnums.OK.getCode());
+        commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(message);
         commonResp.setData(data);
         return commonResp;
@@ -94,8 +94,8 @@ public class BaseResponse<T> implements Serializable {
     @SuppressWarnings("unchecked")
     public static BaseResponse success(Object data) {
         BaseResponse commonResp=new BaseResponse();
-        commonResp.setCode(RespCodeEnums.OK.getCode());
-        commonResp.setMessage(RespCodeEnums.OK.getMessage());
+        commonResp.setCode(SystemRespCodeEnums.OK.getCode());
+        commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
         commonResp.setData(data);
         return commonResp;
     }
@@ -107,8 +107,8 @@ public class BaseResponse<T> implements Serializable {
      */
     public static BaseResponse success() {
         BaseResponse commonResp=new BaseResponse();
-        commonResp.setCode(RespCodeEnums.OK.getCode());
-        commonResp.setMessage(RespCodeEnums.OK.getMessage());
+        commonResp.setCode(SystemRespCodeEnums.OK.getCode());
+        commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
         return commonResp;
     }
 

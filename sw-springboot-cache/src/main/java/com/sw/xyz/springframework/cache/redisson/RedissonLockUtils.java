@@ -1,6 +1,6 @@
 package com.sw.xyz.springframework.cache.redisson;
 
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;
 import com.sw.xyz.springframework.cache.enums.LockEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -113,11 +113,11 @@ public class RedissonLockUtils {
             } catch (InterruptedException e) {
                 log.error("获取锁失败:{}",e.getMessage(),e);
                 Thread.currentThread().interrupt();
-                throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"获取锁异常");
+                throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"获取锁异常");
             }
         }
         if (!res) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"流程执行中,请稍后重试");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"流程执行中,请稍后重试");
         }
         return lock;
     }

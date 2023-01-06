@@ -1,7 +1,7 @@
 package com.sw.xyz.springframework.cache.config;
 
 import cn.hutool.core.lang.Validator;
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;
 import com.sw.xyz.springframework.cache.annotations.RateLimit;
 import com.sw.xyz.springframework.utils.spel.SpElUtils;
@@ -62,7 +62,7 @@ public class RateLimitAspect {
             ac = rateLimiter.tryAcquire(routeLimiter.timeout(), routeLimiter.timeoutUnit());
         }
         if (!ac) {
-            throw new BaseException(RespCodeEnums.TOO_MANY_REQUESTS.getCode(), RespCodeEnums.TOO_MANY_REQUESTS.getMessage());
+            throw new BaseException(SystemRespCodeEnums.TOO_MANY_REQUESTS.getCode(), SystemRespCodeEnums.TOO_MANY_REQUESTS.getMessage());
         }
     }
 

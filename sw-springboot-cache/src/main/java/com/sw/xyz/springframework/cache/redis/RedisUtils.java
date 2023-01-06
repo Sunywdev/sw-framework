@@ -1,6 +1,6 @@
 package com.sw.xyz.springframework.cache.redis;
 
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;
 import com.sw.xyz.springframework.utils.spring.SpringContextUtils;
 import io.netty.util.internal.StringUtil;
@@ -94,10 +94,10 @@ public class RedisUtils<T> {
      */
     public static boolean saveValue(String key,Object value,long time,TimeUnit unit) {
         if (StringUtil.isNullOrEmpty(key)) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"key不能为空!");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"key不能为空!");
         }
         if (ObjectUtils.isEmpty(value)) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"value不能为空!");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"value不能为空!");
         }
         try{
             redisTemplate.opsForValue().set(key,value,time,unit);
@@ -118,10 +118,10 @@ public class RedisUtils<T> {
      */
     public static boolean saveValue(String key,Object value) {
         if (StringUtil.isNullOrEmpty(key)) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"key不能为空!");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"key不能为空!");
         }
         if (ObjectUtils.isEmpty(value)) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"value不能为空!");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"value不能为空!");
         }
         try{
             redisTemplate.opsForValue().set(key,value);
@@ -275,14 +275,14 @@ public class RedisUtils<T> {
                     //先刪除再抛异常
                     deleteByKey(key);
                     log.info("redis 执行delete完毕");
-                    throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"设置过期时间失败,数据已做清除");
+                    throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"设置过期时间失败,数据已做清除");
                 }
             }
         } catch (BaseException e) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),e.getMessage());
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),e.getMessage());
         } catch (Exception e) {
             log.error("redis进行save时错误,错误信息",e);
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"执行save时错误:" + e.getMessage());
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"执行save时错误:" + e.getMessage());
         }
     }
 
@@ -307,7 +307,7 @@ public class RedisUtils<T> {
             }
         } catch (Exception e) {
             log.error("redis进行save时错误,错误信息",e);
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"执行save时错误:" + e.getMessage());
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"执行save时错误:" + e.getMessage());
         }
     }
 
@@ -323,7 +323,7 @@ public class RedisUtils<T> {
             redisTemplate.opsForHash().put(key,filed,value);
         } catch (Exception e) {
             log.error("redis进行saveFiledToMap时错误,错误信息",e);
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"执行addFiled时错误:" + e.getMessage());
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"执行addFiled时错误:" + e.getMessage());
         }
     }
 
@@ -338,7 +338,7 @@ public class RedisUtils<T> {
             redisTemplate.opsForHash().putAll(key,map);
         } catch (Exception e) {
             log.error("redis进行addToMap时错误,错误信息",e);
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"执行addMap时错误:" + e.getMessage());
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"执行addMap时错误:" + e.getMessage());
         }
     }
 
@@ -374,7 +374,7 @@ public class RedisUtils<T> {
             redisTemplate.delete(key);
         } catch (Exception e) {
             log.error("redis进行delete时错误,错误信息",e);
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"执行deleteByKey时错误:" + e.getMessage());
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"执行deleteByKey时错误:" + e.getMessage());
         }
     }
 
@@ -398,7 +398,7 @@ public class RedisUtils<T> {
     public static String getAutoId(String key) {
         Long increment=redisTemplate.opsForValue().increment(key);
         if (ObjectUtils.isEmpty(increment)) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"生成自增序列错误!");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"生成自增序列错误!");
         }
         if (1 == increment) {
             redisTemplate.expire(key,1,TimeUnit.DAYS);
@@ -417,10 +417,10 @@ public class RedisUtils<T> {
      */
     public List<T> pageInfo(String listKey,int pageNo,int pageSize,Class<T> clazz) {
         if (pageNo <= 0) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"页数需要大于0");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"页数需要大于0");
         }
         if (pageSize <= 0) {
-            throw new BaseException(RespCodeEnums.BAD_REQUEST.getCode(),"条数需要大于0");
+            throw new BaseException(SystemRespCodeEnums.BAD_REQUEST.getCode(),"条数需要大于0");
         }
         int start=pageSize * (pageNo - 1); // 因为redis中list元素位置基数是0
         int end=start + pageSize - 1;

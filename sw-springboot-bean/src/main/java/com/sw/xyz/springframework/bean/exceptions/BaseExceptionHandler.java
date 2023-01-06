@@ -1,6 +1,6 @@
 package com.sw.xyz.springframework.bean.exceptions;
 
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.response.BaseResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -93,7 +93,7 @@ public class BaseExceptionHandler {
             }
         }
         log.error("参数验证异常信息:{}",errorMsg,ex);
-        return BaseResponse.error(RespCodeEnums.BAD_REQUEST.getCode(),errorMsg);
+        return BaseResponse.error(SystemRespCodeEnums.BAD_REQUEST.getCode(),errorMsg);
     }
 
     /**
@@ -103,7 +103,7 @@ public class BaseExceptionHandler {
     @ResponseBody
     public BaseResponse httpRequestMethodNotSupportedExceptionHandler(HttpRequestMethodNotSupportedException e) {
         log.error("HttpRequestMethodNotSupportedException异常信息,请求的方法不正确:{}",e.getMessage(),e);
-        return BaseResponse.error(RespCodeEnums.BAD_REQUEST.getCode(),"HTTP请求方式错误");
+        return BaseResponse.error(SystemRespCodeEnums.BAD_REQUEST.getCode(),"HTTP请求方式错误");
     }
 
     /**
@@ -116,6 +116,6 @@ public class BaseExceptionHandler {
     @ResponseBody
     public BaseResponse missingServletRequestParameterExceptionHandler(MissingServletRequestParameterException e) {
         log.error("MissingServletRequestParameterException异常信息,请求参数缺失:{}",e.getMessage(),e);
-        return BaseResponse.error(RespCodeEnums.BAD_REQUEST.getCode(),"请求缺少参数");
+        return BaseResponse.error(SystemRespCodeEnums.BAD_REQUEST.getCode(),"请求缺少参数");
     }
 }

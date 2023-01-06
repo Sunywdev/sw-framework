@@ -1,7 +1,7 @@
 package com.sw.xyz.springframework.cache.config;
 
 import cn.hutool.core.lang.Validator;
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;
 import com.sw.xyz.springframework.cache.annotations.Lock;
 import com.sw.xyz.springframework.cache.enums.LockEnum;
@@ -16,11 +16,8 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Method;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -70,7 +67,7 @@ public class LockAspect {
             if (rLock.isLocked()) {
                 proceed = point.proceed();
             } else {
-                throw new BaseException(RespCodeEnums.SYSTEM_IN_PROCESSING.getCode(), RespCodeEnums.SYSTEM_IN_PROCESSING.getMessage());
+                throw new BaseException(SystemRespCodeEnums.SYSTEM_IN_PROCESSING.getCode(), SystemRespCodeEnums.SYSTEM_IN_PROCESSING.getMessage());
             }
         } finally {
             if (null != rLock && rLock.isLocked()) {

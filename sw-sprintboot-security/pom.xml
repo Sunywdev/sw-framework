@@ -16,9 +16,10 @@
             <artifactId>sw-springboot-starter</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

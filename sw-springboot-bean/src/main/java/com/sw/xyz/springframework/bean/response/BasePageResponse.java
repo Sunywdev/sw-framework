@@ -1,6 +1,6 @@
 package com.sw.xyz.springframework.bean.response;
 
-import com.sw.xyz.springframework.bean.entity.enums.RespCodeEnums;
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -37,7 +37,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
      */
     public static BasePageResponse error(String message) {
         BasePageResponse commonResp=new BasePageResponse();
-        commonResp.setCode(RespCodeEnums.FAIL.getCode());
+        commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
         return commonResp;
@@ -59,8 +59,8 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
      */
     public static BasePageResponse error() {
         BasePageResponse commonResp=new BasePageResponse();
-        commonResp.setCode(RespCodeEnums.FAIL.getCode());
-        commonResp.setMessage(RespCodeEnums.FAIL.getMessage());
+        commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
+        commonResp.setMessage(SystemRespCodeEnums.FAIL.getMessage());
         commonResp.setSuccess(false);
         return commonResp;
     }
@@ -78,7 +78,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
      * 成功请求
      */
     public static BasePageResponse success(Object data,Integer pageNo,Integer pageSize,Integer totalPages) {
-        return successPageResp(RespCodeEnums.OK.getMessage(),data,pageNo,pageSize,totalPages);
+        return successPageResp(SystemRespCodeEnums.OK.getMessage(),data,pageNo,pageSize,totalPages);
     }
 
     /**
@@ -86,8 +86,8 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
      */
     public static BasePageResponse success(Integer pageNo,Integer pageSize,Integer totalPages) {
         BasePageResponse commonResp=new BasePageResponse();
-        commonResp.setCode(RespCodeEnums.OK.getCode());
-        commonResp.setMessage(RespCodeEnums.OK.getMessage());
+        commonResp.setCode(SystemRespCodeEnums.OK.getCode());
+        commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
         commonResp.setPageNo(pageNo);
         commonResp.setPageSize(pageSize);
         commonResp.setTotalPages(totalPages);
@@ -98,7 +98,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
     @SuppressWarnings("unchecked")
     private static BasePageResponse successPageResp(String message,Object data,Integer pageNo,Integer pageSize,Integer totalPages) {
         BasePageResponse commonResp=new BasePageResponse();
-        commonResp.setCode(RespCodeEnums.OK.getCode());
+        commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(message);
         commonResp.setData(data);
         commonResp.setPageNo(pageNo);

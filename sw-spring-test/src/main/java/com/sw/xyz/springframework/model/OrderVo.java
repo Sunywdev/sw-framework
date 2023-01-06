@@ -1,12 +1,15 @@
 package com.sw.xyz.springframework.model;
 
+import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.core.sensitive.Sensitive;
 import com.sw.xyz.springframework.core.sensitive.SensitiveTypeEnum;
+import com.sw.xyz.springframework.core.valid.Enums;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -27,19 +30,21 @@ public class OrderVo implements Serializable {
 
     private String userId;
 
+    @Enums(clazz=SystemRespCodeEnums.class)
+    @NotBlank(message="请求参数为空")
     private String orderId;
 
     private BigDecimal orderAmount;
 
-    @Sensitive(value = SensitiveTypeEnum.EMAIL)
+    @Sensitive(value=SensitiveTypeEnum.EMAIL)
     private String email;
 
-    @Sensitive(value = SensitiveTypeEnum.PHONE_NO)
+    @Sensitive(value=SensitiveTypeEnum.PHONE_NO)
     private String phone;
 
-    @Sensitive(value = SensitiveTypeEnum.CHINESE_NAME)
+    @Sensitive(value=SensitiveTypeEnum.CHINESE_NAME)
     private String userName;
 
-    @Sensitive(value = SensitiveTypeEnum.BANK_CARD)
+    @Sensitive(value=SensitiveTypeEnum.BANK_CARD)
     private String bankCard;
 }
