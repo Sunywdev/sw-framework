@@ -32,6 +32,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
      */
     private Integer totalPages;
 
+
     /**
      * 错误请求
      */
@@ -40,6 +41,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -51,6 +53,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
         commonResp.setCode(code);
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -62,6 +65,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setMessage(SystemRespCodeEnums.FAIL.getMessage());
         commonResp.setSuccess(false);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -91,6 +95,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
         commonResp.setPageNo(pageNo);
         commonResp.setPageSize(pageSize);
         commonResp.setTotalPages(totalPages);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -104,6 +109,7 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
         commonResp.setPageNo(pageNo);
         commonResp.setPageSize(pageSize);
         commonResp.setTotalPages(totalPages);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 }

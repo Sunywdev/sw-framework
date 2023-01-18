@@ -1,6 +1,6 @@
 package com.sw.xyz.springframework.core.interceptor;
 
-import com.sw.xyz.springframework.core.constants.SystemConstants;
+import com.sw.xyz.springframework.bean.constants.SystemConstants;
 import org.slf4j.MDC;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;

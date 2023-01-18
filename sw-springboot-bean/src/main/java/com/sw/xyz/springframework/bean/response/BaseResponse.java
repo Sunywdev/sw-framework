@@ -1,7 +1,10 @@
 package com.sw.xyz.springframework.bean.response;
 
+import com.sw.xyz.springframework.bean.constants.SystemConstants;
 import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.slf4j.MDC;
 
 import java.io.Serializable;
 
@@ -15,20 +18,33 @@ import java.io.Serializable;
  * 时间: 2022/9/20 9:07
  */
 @Data
+//@NoArgsConstructor
 public class BaseResponse<T> implements Serializable {
 
+    /**
+     * 响应码
+     */
+    private Integer code=SystemRespCodeEnums.OK.getCode();
 
-    private Integer code= SystemRespCodeEnums.OK.getCode();
-
-
+    /**
+     * 响应信息
+     */
     private String message=SystemRespCodeEnums.OK.getMessage();
 
-
+    /**
+     * 成功标志
+     */
     private Boolean success=true;
 
+    /**
+     * 系统链路跟踪标识
+     */
+    private String triceId;
 
+    /**
+     * 返回信息
+     */
     private T data;
-
 
     /**
      * 错误请求
@@ -41,6 +57,7 @@ public class BaseResponse<T> implements Serializable {
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -55,6 +72,7 @@ public class BaseResponse<T> implements Serializable {
         commonResp.setCode(code);
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -68,6 +86,7 @@ public class BaseResponse<T> implements Serializable {
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setMessage(SystemRespCodeEnums.FAIL.getMessage());
         commonResp.setSuccess(false);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -83,6 +102,7 @@ public class BaseResponse<T> implements Serializable {
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(message);
         commonResp.setData(data);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -97,6 +117,7 @@ public class BaseResponse<T> implements Serializable {
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
         commonResp.setData(data);
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
@@ -109,8 +130,12 @@ public class BaseResponse<T> implements Serializable {
         BaseResponse commonResp=new BaseResponse();
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
+        commonResp.setTriceId(getLinkId());
         return commonResp;
     }
 
+    protected static String getLinkId() {
+        return MDC.get(SystemConstants.TRACE_ID_MDC_FIELD);
+    }
 }
 

@@ -1,6 +1,7 @@
 package com.sw.xyz.springframework.core.health;
 
 import com.sw.xyz.springframework.bean.response.BaseResponse;
+import com.sw.xyz.springframework.utils.json.FastJsonUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.sw.xyz.springframework.core.constants;
+package com.sw.xyz.springframework.bean.constants;
 
 /**
  * 名称: XX定义

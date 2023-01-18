@@ -41,13 +41,7 @@ public class RedissonBaseUtils<T> {
     public long getSequence(String key) {
 
         RAtomicLong bucket=redissonClient.getAtomicLong(key);
-        long seq=bucket.incrementAndGet();
-        if (seq == 1) {
-            //初始化，设定过期时间为 1 天
-            log.debug("初始化序列key:{}，设定有效期1天!",key);
-            bucket.expire(1,TimeUnit.DAYS);
-        }
-        return seq;
+        return bucket.incrementAndGet();
     }
 
     /**
