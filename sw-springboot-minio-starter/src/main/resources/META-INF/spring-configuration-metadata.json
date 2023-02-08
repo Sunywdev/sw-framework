@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "sw.minio",
+      "type": "com.sw.xyz.springframework.oss.config.MinIoConfig",
+      "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sw.oss.minio.endpoint",
+      "type": "java.lang.String",
+      "description": "端点",
+      "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
+      "defaultValue": "1.0.0"
+    },
+    {
+      "name": "sw.oss.minio.defaultBucketName",
+      "type": "java.lang.String",
+      "description": "默认的桶名称",
+      "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
+      "defaultValue": "1.0.0"
+    },
+    {
+      "name": "sw.oss.minio..accessKey",
+      "type": "java.lang.String",
+      "description": "访问key",
+      "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
+      "defaultValue": "1.0.0"
+    },
+    {
+      "name": "sw.oss.minio.secretKey",
+      "type": "java.lang.String",
+      "description": "密钥",
+      "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
+      "defaultValue": "1.0.0"
+    },
+    {
+      "name": "sw.oss.minio.domainName",
+      "type": "java.lang.String",
+      "description": "域名：可选配置",
+      "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
+      "defaultValue": "1.0.0"
+    }
+  ],
+  "hints": []
+}

@@ -37,7 +37,7 @@ public class BaseExceptionHandler {
      * 捕获Exception
      *
      * @param e Exception
-     * @return CommonResponse
+     * @return BaseResponse
      */
     @ExceptionHandler(value=Exception.class)
     @ResponseBody
@@ -52,7 +52,7 @@ public class BaseExceptionHandler {
      * 捕获CommonException
      *
      * @param e CommonException
-     * @return CommonResponse
+     * @return BaseResponse
      */
     @ExceptionHandler(value=BaseException.class)
     @ResponseBody
@@ -67,7 +67,7 @@ public class BaseExceptionHandler {
      * 参数验证异常处理
      *
      * @param ex Exception
-     * @return CommonResponse
+     * @return BaseResponse
      */
     @ResponseBody
     @ExceptionHandler({BindException.class,MethodArgumentNotValidException.class,ConstraintViolationException.class})
@@ -101,19 +101,21 @@ public class BaseExceptionHandler {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     @ResponseBody
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public BaseResponse httpRequestMethodNotSupportedExceptionHandler(HttpRequestMethodNotSupportedException e) {
         log.error("HttpRequestMethodNotSupportedException异常信息,请求的方法不正确:{}",e.getMessage(),e);
-        return BaseResponse.error(SystemRespCodeEnums.BAD_REQUEST.getCode(),"HTTP请求方式错误");
+        return BaseResponse.error(SystemRespCodeEnums.METHOD_NOT_ALLOWED.getCode(),"HTTP请求方式错误");
     }
 
     /**
      * 请求参数缺少
      *
      * @param e MissingServletRequestParameterException
-     * @return CommonResponse
+     * @return BaseResponse
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public BaseResponse missingServletRequestParameterExceptionHandler(MissingServletRequestParameterException e) {
         log.error("MissingServletRequestParameterException异常信息,请求参数缺失:{}",e.getMessage(),e);
         return BaseResponse.error(SystemRespCodeEnums.BAD_REQUEST.getCode(),"请求缺少参数");

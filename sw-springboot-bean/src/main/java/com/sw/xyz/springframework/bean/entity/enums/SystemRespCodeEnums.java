@@ -19,19 +19,19 @@ public enum SystemRespCodeEnums implements BaseEnums {
     /**
      * 按照五位进行扩展,以HTTP状态码为基准进行后续的扩展
      */
-    OK(20000, "成功"),
-    BAD_REQUEST(40000, "错误的请求"),
-    REPEATABLE_REQUESTS(40001,"请求失败,请求重复"),
-    UNAUTHORIZED(40100, "请求失败,未被允许的请求"),
-    SYSTEM_IN_PROCESSING(40300, "系统正在处理中,请稍后再重试"),
-    NOT_FOUND(40400, "请求失败,无法识别的请求"),
-    TIMEOUT(40800, "请求失败,请求超时"),
-    METHOD_NOT_ALLOWED(40500, "请求失败,错误的请求方式"),
-    TOO_MANY_REQUESTS(42900, "请求失败,请求太快了"),
-    FAIL(50000, "请求失败");
+    OK("20000", "成功"),
+    BAD_REQUEST("40000", "错误的请求"),
+    REPEATABLE_REQUESTS("40001","请求失败,请求重复"),
+    UNAUTHORIZED("40100", "请求失败,未被允许的请求"),
+    SYSTEM_IN_PROCESSING("40300", "系统正在处理中,请稍后再重试"),
+    NOT_FOUND("40400", "请求失败,无法识别的请求"),
+    METHOD_NOT_ALLOWED("40500", "请求失败,错误的请求方式"),
+    TIMEOUT("40800", "请求失败,请求超时"),
+    TOO_MANY_REQUESTS("42900", "请求失败,请求太快了"),
+    FAIL("50000", "请求失败");
 
 
-    private Integer code;
+    private String code;
 
     private String message;
 

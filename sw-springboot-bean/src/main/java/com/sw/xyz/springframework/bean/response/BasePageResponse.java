@@ -15,7 +15,7 @@ import java.io.Serializable;
  * 时间: 2022/9/20 9:08
  */
 @Data
-public class BasePageResponse<T> extends BaseResponse implements Serializable {
+public class BasePageResponse<T> extends BaseResponse<T> implements Serializable {
 
     /**
      * 页码数
@@ -36,36 +36,36 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
     /**
      * 错误请求
      */
-    public static BasePageResponse error(String message) {
-        BasePageResponse commonResp=new BasePageResponse();
+    public static <T> BasePageResponse<T> error(String message) {
+        BasePageResponse<T> commonResp = new BasePageResponse<>();
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
     /**
      * 错误请求
      */
-    public static BasePageResponse error(Integer code,String message) {
-        BasePageResponse commonResp=new BasePageResponse();
+    public static <T> BasePageResponse<T> error(String code, String message) {
+        BasePageResponse<T> commonResp = new BasePageResponse<>();
         commonResp.setCode(code);
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
     /**
      * 错误请求
      */
-    public static BasePageResponse error() {
-        BasePageResponse commonResp=new BasePageResponse();
+    public static <T> BasePageResponse<T> error() {
+        BasePageResponse<T> commonResp = new BasePageResponse<>();
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setMessage(SystemRespCodeEnums.FAIL.getMessage());
         commonResp.setSuccess(false);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
@@ -73,43 +73,42 @@ public class BasePageResponse<T> extends BaseResponse implements Serializable {
      * 成功请求
      */
 
-    public static BasePageResponse success(String message,Object data,Integer pageNo,Integer pageSize,Integer totalPages) {
-        return successPageResp(message,data,pageNo,pageSize,totalPages);
+    public static <T> BasePageResponse<T> success(String message, T data, Integer pageNo, Integer pageSize, Integer totalPages) {
+        return successPageResp(message, data, pageNo, pageSize, totalPages);
     }
 
 
     /**
      * 成功请求
      */
-    public static BasePageResponse success(Object data,Integer pageNo,Integer pageSize,Integer totalPages) {
-        return successPageResp(SystemRespCodeEnums.OK.getMessage(),data,pageNo,pageSize,totalPages);
+    public static <T> BasePageResponse<T> success(T data, Integer pageNo, Integer pageSize, Integer totalPages) {
+        return successPageResp(SystemRespCodeEnums.OK.getMessage(), data, pageNo, pageSize, totalPages);
     }
 
     /**
      * 成功请求
      */
-    public static BasePageResponse success(Integer pageNo,Integer pageSize,Integer totalPages) {
-        BasePageResponse commonResp=new BasePageResponse();
+    public static <T> BasePageResponse<T> success(Integer pageNo, Integer pageSize, Integer totalPages) {
+        BasePageResponse<T> commonResp = new BasePageResponse<>();
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
         commonResp.setPageNo(pageNo);
         commonResp.setPageSize(pageSize);
         commonResp.setTotalPages(totalPages);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
 
-    @SuppressWarnings("unchecked")
-    private static BasePageResponse successPageResp(String message,Object data,Integer pageNo,Integer pageSize,Integer totalPages) {
-        BasePageResponse commonResp=new BasePageResponse();
+    private static <T> BasePageResponse<T> successPageResp(String message, T data, Integer pageNo, Integer pageSize, Integer totalPages) {
+        BasePageResponse<T> commonResp = new BasePageResponse<>();
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(message);
         commonResp.setData(data);
         commonResp.setPageNo(pageNo);
         commonResp.setPageSize(pageSize);
         commonResp.setTotalPages(totalPages);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 }

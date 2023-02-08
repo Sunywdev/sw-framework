@@ -20,7 +20,7 @@ public interface BaseEnums {
      * @param <E>
      * @return
      */
-    static <E extends Enum<?> & BaseEnums> E codeOf(Class<E> enumClass,Integer code) {
+    static <E extends Enum<?> & BaseEnums> E codeOf(Class<E> enumClass,String code) {
         if (null != code) {
             for (E e : enumClass.getEnumConstants()) {
                 if (code.equals(e.getCode())){
@@ -31,5 +31,5 @@ public interface BaseEnums {
         return null;
     }
 
-    Integer getCode();
+    String getCode();
 }

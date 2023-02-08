@@ -22,6 +22,7 @@
         <module>sw-springboot-core</module>
         <module>sw-springboot-job</module>
         <module>sw-sprintboot-security</module>
+        <module>sw-springboot-minio-starter</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -49,6 +50,8 @@
         <hibernate-validator-version>6.0.18.Final</hibernate-validator-version>
         <!--xxl-job版本-->
         <xxl-job-version>2.3.0</xxl-job-version>
+        <!--minio版本-->
+        <minio-version>7.0.2</minio-version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -91,7 +94,7 @@
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
-                <version>4.9.3</version>
+                <version>3.14.9</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -99,10 +102,10 @@
                 <version>31.1-jre</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.6</version>
-            </dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot-starter</artifactId>

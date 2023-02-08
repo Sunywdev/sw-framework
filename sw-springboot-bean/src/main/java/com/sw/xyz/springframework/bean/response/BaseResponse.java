@@ -3,7 +3,6 @@ package com.sw.xyz.springframework.bean.response;
 import com.sw.xyz.springframework.bean.constants.SystemConstants;
 import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.slf4j.MDC;
 
 import java.io.Serializable;
@@ -24,7 +23,7 @@ public class BaseResponse<T> implements Serializable {
     /**
      * 响应码
      */
-    private Integer code=SystemRespCodeEnums.OK.getCode();
+    private String code=SystemRespCodeEnums.OK.getCode();
 
     /**
      * 响应信息
@@ -52,12 +51,12 @@ public class BaseResponse<T> implements Serializable {
      * @param message
      * @return
      */
-    public static BaseResponse error(String message) {
-        BaseResponse commonResp=new BaseResponse();
+    public static <T> BaseResponse<T> error(String message) {
+        BaseResponse<T> commonResp = new BaseResponse<>();
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
@@ -67,12 +66,12 @@ public class BaseResponse<T> implements Serializable {
      * @param message
      * @return
      */
-    public static BaseResponse error(Integer code,String message) {
-        BaseResponse commonResp=new BaseResponse();
+    public static <T> BaseResponse<T> error(String code, String message) {
+        BaseResponse<T> commonResp = new BaseResponse<>();
         commonResp.setCode(code);
         commonResp.setSuccess(false);
         commonResp.setMessage(message);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
@@ -81,12 +80,12 @@ public class BaseResponse<T> implements Serializable {
      *
      * @return
      */
-    public static BaseResponse error() {
-        BaseResponse commonResp=new BaseResponse();
+    public static <T> BaseResponse<T> error() {
+        BaseResponse<T> commonResp = new BaseResponse<>();
         commonResp.setCode(SystemRespCodeEnums.FAIL.getCode());
         commonResp.setMessage(SystemRespCodeEnums.FAIL.getMessage());
         commonResp.setSuccess(false);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
@@ -96,13 +95,12 @@ public class BaseResponse<T> implements Serializable {
      * @param message
      * @return
      */
-    @SuppressWarnings("unchecked")
-    public static BaseResponse success(String message,Object data) {
-        BaseResponse commonResp=new BaseResponse();
+    public static <T> BaseResponse<T> success(String message, T data) {
+        BaseResponse<T> commonResp = new BaseResponse<>();
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(message);
         commonResp.setData(data);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
@@ -111,13 +109,12 @@ public class BaseResponse<T> implements Serializable {
      *
      * @return
      */
-    @SuppressWarnings("unchecked")
-    public static BaseResponse success(Object data) {
-        BaseResponse commonResp=new BaseResponse();
+    public static <T> BaseResponse<T> success(T data) {
+        BaseResponse<T> commonResp = new BaseResponse<>();
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
         commonResp.setData(data);
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
@@ -126,15 +123,15 @@ public class BaseResponse<T> implements Serializable {
      *
      * @return
      */
-    public static BaseResponse success() {
-        BaseResponse commonResp=new BaseResponse();
+    public static <T> BaseResponse<T> success() {
+        BaseResponse<T> commonResp = new BaseResponse<>();
         commonResp.setCode(SystemRespCodeEnums.OK.getCode());
         commonResp.setMessage(SystemRespCodeEnums.OK.getMessage());
-        commonResp.setTriceId(getLinkId());
+        commonResp.setTriceId(getTriceId());
         return commonResp;
     }
 
-    protected static String getLinkId() {
+    protected static String getTriceId() {
         return MDC.get(SystemConstants.TRACE_ID_MDC_FIELD);
     }
 }
