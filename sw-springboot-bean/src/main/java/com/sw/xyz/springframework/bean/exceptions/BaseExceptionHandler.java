@@ -4,6 +4,7 @@ import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.response.BaseResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,7 @@ import javax.validation.ConstraintViolationException;
  * 时间: 2022/9/22 16:39
  */
 @RestControllerAdvice
+@Order(2)
 public class BaseExceptionHandler {
 
 

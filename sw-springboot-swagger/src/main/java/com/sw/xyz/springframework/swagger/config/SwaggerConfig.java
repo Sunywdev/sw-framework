@@ -34,7 +34,7 @@ public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
         return (new Docket(DocumentationType.SWAGGER_2)).apiInfo(this.apiInfo()).enable(swaggerParams.isEnable()).
-                select().apis(RequestHandlerSelectors.basePackage("com.sw")).paths(PathSelectors.any()).build();
+                select().apis(RequestHandlerSelectors.basePackage(swaggerParams.getBasePackage())).paths(PathSelectors.any()).build();
     }
 
     private ApiInfo apiInfo() {

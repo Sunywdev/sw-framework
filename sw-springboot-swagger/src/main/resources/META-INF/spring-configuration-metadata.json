@@ -65,6 +65,14 @@
       "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
       "defaultValue": "1.0.0"
     }
+  ,
+    {
+      "name": "sw.swagger.basePackage",
+      "type": "java.lang.String",
+      "description": "版本号",
+      "sourceType": "com.sw.xyz.springframework.swagger.config.SwaggerParams",
+      "defaultValue": "1.0.0"
+    }
   ],
   "hints": []
 }

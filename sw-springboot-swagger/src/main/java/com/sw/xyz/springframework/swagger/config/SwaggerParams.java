@@ -31,6 +31,8 @@ public class SwaggerParams {
 
     private boolean enable=true;
 
+    private String basePackage = "com.sw";
+
     public static class Contact {
         private String name;
         private String url;
@@ -110,5 +112,13 @@ public class SwaggerParams {
 
     public void setEnable(boolean enable) {
         this.enable=enable;
+    }
+
+    public String getBasePackage() {
+        return basePackage;
+    }
+
+    public void setBasePackage(String basePackage) {
+        this.basePackage = basePackage;
     }
 }

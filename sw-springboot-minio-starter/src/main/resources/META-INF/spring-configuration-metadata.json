@@ -15,28 +15,28 @@
       "defaultValue": "1.0.0"
     },
     {
-      "name": "sw.oss.minio.defaultBucketName",
+      "name": "sw.oss.minio.default-bucket-name",
       "type": "java.lang.String",
       "description": "默认的桶名称",
       "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
       "defaultValue": "1.0.0"
     },
     {
-      "name": "sw.oss.minio..accessKey",
+      "name": "sw.oss.minio.access-key",
       "type": "java.lang.String",
       "description": "访问key",
       "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
       "defaultValue": "1.0.0"
     },
     {
-      "name": "sw.oss.minio.secretKey",
+      "name": "sw.oss.minio.secret-key",
       "type": "java.lang.String",
       "description": "密钥",
       "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",
       "defaultValue": "1.0.0"
     },
     {
-      "name": "sw.oss.minio.domainName",
+      "name": "sw.oss.minio.domain-name",
       "type": "java.lang.String",
       "description": "域名：可选配置",
       "sourceType": "com.sw.xyz.springframework.oss.config.MinIoConfig",

@@ -1,0 +1,150 @@
+{
+  "groups": [
+    {
+      "name": "sw.security",
+      "type": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sw.security.ignore-path",
+      "type": "java.lang.String",
+      "description": "忽略鉴权路径,多个以,分割,已经配置过了swagger的过滤配置",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties"
+    },
+    {
+      "name": "sw.security.enable-security-filter",
+      "type": "java.lang.Boolean",
+      "description": "开启权限过滤器,默认开启,为false时则不再拦截请求校验,推荐在开发调试时使用,生产和测试环境禁止使用",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.tokenName",
+      "type": "java.lang.String",
+      "description": "token名称",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": "sw"
+    },
+    {
+      "name": "sw.security.timeout",
+      "type": "java.lang.Long",
+      "description": "token的长久有效期(单位:秒) 默认30天, -1代表永久",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": -1
+    },
+    {
+      "name": "sw.security.token-style",
+      "type": "java.lang.String",
+      "description": "token样式,可选uuid、simple-uuid、random-32、random-64、random-128、tik,默认random-128",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": "random-128"
+    },
+    {
+      "name": "sw.security.activity-timeout",
+      "type": "java.lang.Long",
+      "description": "时间内无操作就视为token过期(单位: 秒),-1 代表不限制,默认30分钟",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": 1800
+    },
+    {
+      "name": "sw.security.auto-renew",
+      "type": "java.lang.Boolean",
+      "description": "是否打开自动续签 (如果此值为true, 框架会在每次直接或间接调用getLoginId()时进行一次过期检查与续签操作),默认为true",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.is-concurrent",
+      "type": "java.lang.Boolean",
+      "description": "是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录),默认为true",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.is-share",
+      "type": "java.lang.Boolean",
+      "description": "在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token),默认为true",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.max-login-count",
+      "type": "java.lang.Integer",
+      "description": "同一账号最大登录数量，-1代表不限 （只有在 isConcurrent=true, isShare=false 时此配置才有效）,默认为12",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": 12
+    },
+    {
+      "name": "sw.security.is-read-body",
+      "type": "java.lang.Boolean",
+      "description": "是否尝试从请求体里读取token,默认为true",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.is-read-header",
+      "type": "java.lang.Boolean",
+      "description": "是否尝试从header里读取token,默认为true",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.is-read-cookie",
+      "type": "java.lang.Boolean",
+      "description": "是否尝试从cookie里读取token,默认为true",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.is-write-header",
+      "type": "java.lang.Boolean",
+      "description": "是否在登录后将 Token 写入到响应头,默认为true",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.log-level",
+      "type": "java.lang.String",
+      "description": "日志等级（trace、debug、info、warn、error、fatal）,默认为trace",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": "trace"
+    },
+    {
+      "name": "sw.security.data-refresh-period",
+      "type": "java.lang.Integer",
+      "description": "默认dao层实现类中，每次清理过期数据间隔的时间 (单位: 秒) ，默认值30秒，设置为-1代表不启动定时清理",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": 30
+    },
+    {
+      "name": "sw.security.token-session-check-login",
+      "type": "java.lang.Boolean",
+      "description": "获取[token专属session]时是否必须登录 (如果配置为true，会在每次获取[token-session]时校验是否登录)",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sw.security.token-prefix",
+      "type": "java.lang.String",
+      "description": "token前缀, 格式样例(satoken: Bearer xxxx-xxxx-xxxx-xxxx)",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties"
+    },
+    {
+      "name": "sw.security.is-print",
+      "type": "java.lang.Boolean",
+      "description": "是否在初始化配置时打印版本字符画,默认false",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "sw.security.is-log",
+      "type": "java.lang.Boolean",
+      "description": "是否打印操作日志,默认false",
+      "sourceType": "com.sw.xyz.springframework.security.config.SecurityProperties",
+      "defaultValue": false
+    }
+  ],
+  "hints": []
+}

@@ -26,6 +26,6 @@
 - sw-springcloud-starter
     - springcloud启动依赖
 - sw-sprintboot-security
-    - 安全模块,以sa-token为基础进行二次封装
+    - 安全模块,以sa-token为基础进行二次封装,支持分布式session配置,可自定义配置
 - sw-springboot-minio-starter
     - minio oss相关模块,自带minio的工具操作
