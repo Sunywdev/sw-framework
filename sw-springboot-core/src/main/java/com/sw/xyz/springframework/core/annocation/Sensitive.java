@@ -1,4 +1,6 @@
-package com.sw.xyz.springframework.core.sensitive;
+package com.sw.xyz.springframework.core.annocation;
+
+import com.sw.xyz.springframework.core.sensitive.SensitiveTypeEnum;
 
 import java.lang.annotation.*;
 

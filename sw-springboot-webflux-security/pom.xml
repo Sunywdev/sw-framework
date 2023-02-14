@@ -9,27 +9,39 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sw-sprintboot-security</artifactId>
+    <artifactId>sw-springboot-webflux-security</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.sw.xyz.springframework</groupId>
-            <artifactId>sw-springboot-starter</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
-        <dependency>
             <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <artifactId>sa-token-reactor-spring-boot-starter</artifactId>
+            <version>${satoken-version}</version>
         </dependency>
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-dao-redis</artifactId>
         </dependency>
         <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-jwt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.sw.xyz.springframework</groupId>
             <artifactId>sw-springboot-bean</artifactId>
             <version>${project.parent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
-
 </project>

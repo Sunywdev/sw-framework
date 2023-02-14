@@ -1,6 +1,7 @@
-package com.sw.xyz.springframework.core.valid;
+package com.sw.xyz.springframework.core.annocation;
 
 import com.sw.xyz.springframework.bean.entity.enums.BaseEnums;
+import com.sw.xyz.springframework.core.valid.EnumValid;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -18,7 +19,7 @@ import java.lang.annotation.*;
  */
 @Target({ElementType.METHOD,ElementType.FIELD,ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy=EnumValid.class)
+@Constraint(validatedBy= EnumValid.class)
 @Documented
 public @interface Enums {
 

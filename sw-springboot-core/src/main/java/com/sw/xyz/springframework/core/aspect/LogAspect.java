@@ -2,7 +2,7 @@ package com.sw.xyz.springframework.core.aspect;
 
 import cn.hutool.core.date.DateUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sw.xyz.springframework.core.log.Log;
+import com.sw.xyz.springframework.core.annocation.Log;
 import com.sw.xyz.springframework.core.log.LogLevel;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -37,7 +37,7 @@ public class LogAspect {
     private ObjectMapper objectMapper=new ObjectMapper();
 
 
-    @Pointcut("@annotation(com.sw.xyz.springframework.core.log.Log)")
+    @Pointcut("@annotation(com.sw.xyz.springframework.core.annocation.Log)")
     public void pointCut() {
 
     }

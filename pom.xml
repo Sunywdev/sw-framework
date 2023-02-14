@@ -23,6 +23,7 @@
         <module>sw-springboot-job</module>
         <module>sw-sprintboot-security</module>
         <module>sw-springboot-minio-starter</module>
+        <module>sw-springboot-webflux-security</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -39,7 +40,7 @@
         <!--gson版本-->
         <fastjson-version>1.2.83</fastjson-version>
         <!--hutools版本-->
-        <hutools-version>5.7.13</hutools-version>
+        <hutools-version>5.8.4</hutools-version>
         <!--SpringCloud版本-->
         <spring-cloud-version>2020.0.3</spring-cloud-version>
         <!--Redisson版本-->
@@ -52,6 +53,8 @@
         <xxl-job-version>2.3.0</xxl-job-version>
         <!--minio版本-->
         <minio-version>7.0.2</minio-version>
+        <!--sa-token版本-->
+        <satoken-version>1.34.0</satoken-version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -109,18 +112,18 @@
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot-starter</artifactId>
-                <version>1.34.0</version>
+                <version>${satoken-version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-jwt</artifactId>
-                <version>1.34.0</version>
+                <version>${satoken-version}</version>
             </dependency>
             <!-- Sa-Token 整合 Redis （使用 jdk 默认序列化方式） -->
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-dao-redis</artifactId>
-                <version>1.34.0</version>
+                <version>${satoken-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

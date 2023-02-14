@@ -27,5 +27,7 @@
     - springcloud启动依赖
 - sw-sprintboot-security
     - 安全模块,以sa-token为基础进行二次封装,支持分布式session配置,可自定义配置
+- sw-springboot-webflux
+    - 基于WebFlux的安全控制,基于sa-token,可用于网关层统一鉴权
 - sw-springboot-minio-starter
     - minio oss相关模块,自带minio的工具操作

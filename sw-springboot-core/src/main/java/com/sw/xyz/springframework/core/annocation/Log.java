@@ -1,4 +1,6 @@
-package com.sw.xyz.springframework.core.log;
+package com.sw.xyz.springframework.core.annocation;
+
+import com.sw.xyz.springframework.core.log.LogLevel;
 
 import java.lang.annotation.*;
 

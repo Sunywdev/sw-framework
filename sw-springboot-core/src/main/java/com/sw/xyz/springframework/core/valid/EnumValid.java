@@ -3,6 +3,7 @@ package com.sw.xyz.springframework.core.valid;
 import com.sw.xyz.springframework.bean.entity.enums.BaseEnums;
 import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
 import com.sw.xyz.springframework.bean.exceptions.BaseException;
+import com.sw.xyz.springframework.core.annocation.Enums;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 

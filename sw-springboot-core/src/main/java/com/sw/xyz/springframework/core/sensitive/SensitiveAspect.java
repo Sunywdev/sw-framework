@@ -1,6 +1,7 @@
 package com.sw.xyz.springframework.core.sensitive;
 
 import com.sw.xyz.springframework.bean.response.BaseResponse;
+import com.sw.xyz.springframework.core.annocation.Sensitive;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,7 +23,7 @@ import java.util.Collection;
 @Component
 @Order(2)
 public class SensitiveAspect {
-    @Pointcut("@annotation(com.sw.xyz.springframework.core.sensitive.Sensitive)")
+    @Pointcut("@annotation(com.sw.xyz.springframework.core.annocation.Sensitive)")
     public void pointCut(){
 
     }
