@@ -25,6 +25,8 @@
     - 工具类
 - sw-springcloud-starter
     - springcloud启动依赖
+- sw-springcloud-gary-starter
+    - 灰度发布相关依赖,目前还在coding中,功能还没有完善
 - sw-sprintboot-security
     - 安全模块,以sa-token为基础进行二次封装,支持分布式session配置,可自定义配置
 - sw-springboot-webflux
