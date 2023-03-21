@@ -2,7 +2,7 @@ package com.sw.xyz.springframework.poence;
 
 import com.sw.xyz.springframework.bean.response.BaseResponse;
 import com.sw.xyz.springframework.cache.annotations.IdemPoeNce;
-import com.sw.xyz.springframework.core.log.Log;
+import com.sw.xyz.springframework.core.annocation.Log;
 import com.sw.xyz.springframework.core.log.LogLevel;
 import com.sw.xyz.springframework.model.OrderVo;
 import io.swagger.annotations.Api;

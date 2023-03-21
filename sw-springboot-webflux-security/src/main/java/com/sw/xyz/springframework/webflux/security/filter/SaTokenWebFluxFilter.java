@@ -47,13 +47,13 @@ public class SaTokenWebFluxFilter {
         saReactorFilter.setAuth(r -> {
             log.info(">>>>>>>>>>>>>>>>>>网关全局登录验证");
             StpUtil.checkLogin();
-        })// 指定[异常处理函数]：每次[认证函数]发生异常时执行此函数
-                .setError(e -> {
-                    SaHolder.getResponse().setHeader("Content-Type", "application/json;charset=UTF-8");
-                    SaHolder.getResponse().setStatus(HttpStatus.UNAUTHORIZED.value());
-                    log.error("网关验证权限异常", e);
-                    return JSONUtil.toJsonStr(BaseResponse.error(SystemRespCodeEnums.UNAUTHORIZED.getCode(), SystemRespCodeEnums.UNAUTHORIZED.getMessage()));
-                });
+            // 指定[异常处理函数]：每次[认证函数]发生异常时执行此函数
+        }).setError(e -> {
+            SaHolder.getResponse().setHeader("Content-Type", "application/json;charset=UTF-8");
+            SaHolder.getResponse().setStatus(HttpStatus.UNAUTHORIZED.value());
+            log.error("网关验证权限异常", e);
+            return JSONUtil.toJsonStr(BaseResponse.error(SystemRespCodeEnums.UNAUTHORIZED.getCode(), SystemRespCodeEnums.UNAUTHORIZED.getMessage()));
+        });
         return saReactorFilter;
     }
 }

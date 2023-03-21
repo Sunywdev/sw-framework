@@ -24,6 +24,7 @@
         <module>sw-sprintboot-security</module>
         <module>sw-springboot-minio-starter</module>
         <module>sw-springboot-webflux-security</module>
+        <module>sw-springcloud-gary-starter</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -105,10 +106,10 @@
                 <version>31.1-jre</version>
             </dependency>
             <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.6</version>
-        </dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.6</version>
+            </dependency>
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot-starter</artifactId>
@@ -124,6 +125,11 @@
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-dao-redis</artifactId>
                 <version>${satoken-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatisplus-spring-boot-starter</artifactId>
+                <version>1.0.5</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

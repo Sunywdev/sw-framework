@@ -34,6 +34,7 @@ public class MinIoController {
     @PostMapping("/upload")
     @ApiOperation(value = "minio文件上传", notes = "minio文件上传", response = BaseResponse.class, httpMethod = "POST")
     public BaseResponse<String> upload(MultipartFile request) throws IOException {
+        String s = IdUtil.objectId().toUpperCase() + "." + FileUtil.getSuffix(request.getOriginalFilename());
         String upload = minIoUtil.upload(IdUtil.objectId().toUpperCase() +"."+ FileUtil.getSuffix(request.getOriginalFilename()), request.getInputStream());
         return BaseResponse.success(upload);
     }

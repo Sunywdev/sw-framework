@@ -4,12 +4,13 @@ server:
     context-path: /swagger-example
 spring:
   rabbitmq:
-    addresses: 192.168.93.138
+    addresses: 192.168.32.168
     port: 5672
-    password: guest
+    password: admin
     listener:
       simple:
         acknowledge-mode: manual
+    username: admin
   redis:
     host: 127.0.0.1
     port: 6379

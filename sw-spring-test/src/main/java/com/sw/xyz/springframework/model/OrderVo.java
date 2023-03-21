@@ -1,9 +1,9 @@
 package com.sw.xyz.springframework.model;
 
 import com.sw.xyz.springframework.bean.entity.enums.SystemRespCodeEnums;
-import com.sw.xyz.springframework.core.sensitive.Sensitive;
+import com.sw.xyz.springframework.core.annocation.Sensitive;
 import com.sw.xyz.springframework.core.sensitive.SensitiveTypeEnum;
-import com.sw.xyz.springframework.core.valid.Enums;
+import com.sw.xyz.springframework.core.annocation.Enums;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
